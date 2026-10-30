@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>嘉義三日遊懶人包</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#fff6cf;--paper:#fffdf2;--ink:#5a3a1e;--sub:#8a6a45;--pud:#ffd84d;--cara:#c47a2c;--blue:#7ec8f0;--pink:#ffb3c7;--line:#f0d27a;--food:#ffe9a8;--go:#d9f0fb;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a2112;--paper:#3a2e1a;--ink:#fbeec4;--sub:#d8bf8a;--pud:#e8b92e;--cara:#e39a4a;--blue:#4a8fb5;--pink:#c9788f;--line:#6b5524;--food:#5a4620;--go:#25465a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2a2112;--paper:#3a2e1a;--ink:#fbeec4;--sub:#d8bf8a;--pud:#e8b92e;--cara:#e39a4a;--blue:#4a8fb5;--pink:#c9788f;--line:#6b5524;--food:#5a4620;--go:#25465a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.6;background-image:radial-gradient(var(--line) 1.5px,transparent 1.5px);background-size:22px 22px}
+.wrap{max-width:760px;margin:0 auto;padding:18px 14px 40px}
+.hero{text-align:center;background:var(--paper);border:3px dashed var(--cara);border-radius:28px;padding:18px 14px}
+.hero h1{margin:6px 0 2px;font-size:clamp(26px,7vw,40px);color:var(--cara);letter-spacing:2px}
+.hero p{margin:0;color:var(--sub)}
+.tag{display:inline-block;background:var(--pud);color:#5a3a1e;border-radius:99px;padding:2px 12px;font-weight:700;font-size:14px;margin:4px 3px}
+.route{margin:16px 0;background:var(--go);border-radius:22px;padding:12px;overflow-x:auto}
+.route b{display:block;margin-bottom:6px}
+.route ol{display:flex;gap:6px;list-style:none;margin:0 0 6px;padding:0;min-width:max-content}
+.route li{background:var(--paper);border-radius:14px;padding:4px 10px;font-size:13px;border:2px solid var(--blue);white-space:nowrap}
+.route li+li::before{content:"➜ ";color:var(--cara)}
+.day{background:var(--paper);border:3px solid var(--pud);border-radius:28px;margin:34px 0 22px;padding:14px 14px 8px}
+.day h2{margin:-32px 0 8px;display:inline-block;background:var(--pud);color:#5a3a1e;padding:4px 18px;border-radius:99px;font-size:19px;transform:rotate(-1.5deg);box-shadow:2px 3px 0 var(--cara)}
+.sub{color:var(--sub);font-size:14px;margin:0 0 8px}
+.part{display:inline-block;margin:8px 0 4px;background:var(--pink);color:#5a3a1e;border-radius:10px;padding:0 10px;font-size:13px;font-weight:700}
+.stop{display:grid;grid-template-columns:62px 1fr;gap:10px;margin:0 0 4px}
+.time{font-weight:800;color:var(--cara);text-align:right;padding-top:8px;font-size:15px}
+.card{background:var(--bg);border-radius:16px;padding:8px 12px;border-left:6px solid var(--pud)}
+.card.food{background:var(--food);border-left-color:var(--cara)}
+.card h3{margin:0;font-size:16px}
+.card p{margin:2px 0 0;font-size:13.5px;color:var(--sub)}
+.nav{display:inline-block;margin-left:6px;padding:0 10px;border-radius:99px;background:var(--blue);color:#1d3a4a;font-size:12.5px;font-weight:700;text-decoration:none;vertical-align:middle;white-space:nowrap}.nav:active{transform:scale(.95)}
+.go{display:block;width:fit-content;margin:2px 0 4px 72px;font-size:13px;background:var(--go);border-radius:99px;padding:2px 12px}
+.go::before{content:"🛵 "}
+.pack{background:var(--paper);border:3px solid var(--blue);border-radius:24px;padding:12px 16px;margin:22px 0}
+.pack h2{margin:0 0 2px;color:var(--cara);font-size:18px}
+.pack .bar{font-size:13px;color:var(--sub);margin:0 0 8px}
+.pack h3{margin:10px 0 4px;font-size:15px;background:var(--pud);color:#5a3a1e;display:inline-block;padding:1px 12px;border-radius:99px}
+.pack label{display:flex;align-items:center;gap:10px;padding:5px 4px;font-size:14.5px;cursor:pointer;border-bottom:1px dotted var(--line)}
+.pack input{appearance:none;-webkit-appearance:none;width:22px;height:22px;flex:none;border:2.5px solid var(--cara);border-radius:7px;background:var(--bg);display:grid;place-content:center;margin:0;cursor:pointer}
+.pack input::after{content:"✓";font-weight:900;color:#5a3a1e;transform:scale(0);transition:transform .12s}
+.pack input:checked{background:var(--pud)}
+.pack input:checked::after{transform:scale(1)}
+.pack input:checked+span{text-decoration:line-through;opacity:.55}
+.tips{background:var(--paper);border:3px dashed var(--pink);border-radius:24px;padding:12px 16px}
+.tips h2{margin:0 0 4px;color:var(--cara);font-size:18px}
+.tips ul{margin:0;padding-left:20px;font-size:14px}
+.foot{text-align:center;color:var(--sub);margin-top:14px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+<svg width="92" height="92" viewBox="0 0 100 100" role="img" aria-label="布丁吉祥物">
+<ellipse cx="50" cy="90" rx="34" ry="6" fill="#c47a2c" opacity=".25"/>
+<path d="M18 80 Q14 46 32 34 Q50 24 68 34 Q86 46 82 80 Z" fill="#ffd84d" stroke="#c47a2c" stroke-width="3"/>
+<path d="M22 44 Q50 18 78 44 Q76 54 66 50 Q60 58 50 50 Q40 58 34 50 Q24 54 22 44Z" fill="#c47a2c"/>
+<circle cx="38" cy="66" r="4" fill="#5a3a1e"/><circle cx="62" cy="66" r="4" fill="#5a3a1e"/>
+<ellipse cx="50" cy="73" rx="4" ry="3" fill="#5a3a1e"/>
+<circle cx="30" cy="74" r="5" fill="#ffb3c7" opacity=".8"/><circle cx="70" cy="74" r="5" fill="#ffb3c7" opacity=".8"/>
+</svg>
+<h1>🍮 嘉義三日遊 手帳 🍮</h1>
+<p>11/11（三）～ 11/13（五）｜租機車慢慢逛</p>
+<div><span class="tag">台中出發</span><span class="tag">機車旅行</span><span class="tag">蔬食＆小吃</span><span class="tag">住嘉義市區</span></div>
+</div>
+
+<div class="route"><b>🗺️ 三日路線總覽</b>
+<ol><li>台中車站</li><li>嘉義租車</li><li>故宮南院</li><li>北港武德宮</li><li>朝天宮</li><li>北港老街</li><li>嘉義住宿</li></ol>
+<ol><li>太平雲梯</li><li>太平老街</li><li>空氣圖書館</li><li>佐登妮絲城堡</li><li>民雄娃娃工廠</li><li>草行居</li><li>文化路</li></ol>
+<ol><li>退房</li><li>Just Burger</li><li>花磚博物館</li><li>檜意森活村</li><li>還車</li><li>嘉義車站</li></ol></div>
+
+<section class="day"><h2>Day 1 ｜ 11/11 故宮＋北港</h2>
+<p class="sub">早起搭火車，下午跨到雲林北港</p>
+<span class="part">☀️ 早上</span>
+<div class="stop"><div class="time">06:57</div><div class="card"><h3>🚆 台中火車站出發</h3><p>自強3000-371 → 嘉義（約1.5小時，以車票為準）</p></div></div>
+<div class="stop"><div class="time">約08:30</div><div class="card"><h3>🛵 兜風機車出租店 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=兜風機車出租 嘉義" target="_blank" rel="noopener">📍導航</a></h3><p>抵達嘉義後辦理租車，帶駕照、身分證，檢查車況與安全帽</p></div></div>
+<span class="go">嘉義車站 → 故宮南院（太保）約30分鐘</span>
+<div class="stop"><div class="time">約10:00</div><div class="card"><h3>🏛️ 故宮南院 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=國立故宮博物院南部院區" target="_blank" rel="noopener">📍導航</a></h3><p>亞洲藝術文化博物館，園區有水池與草地，適合慢慢走</p></div></div>
+<span class="part">🍱 中午</span>
+<span class="go">故宮南院 → 日好蒔光（嘉義市區）約30分鐘</span>
+<div class="stop"><div class="time">12:00</div><div class="card food"><h3>🥗 午餐｜日好蒔光 蔬食料理 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=日好蒔光 嘉義" target="_blank" rel="noopener">📍導航</a></h3><p>吃飽補充體力，下午要騎比較遠</p></div></div>
+<span class="part">🌤️ 下午</span>
+<span class="go">嘉義市區 → 北港武德宮 約50～60分鐘</span>
+<div class="stop"><div class="time">約14:30</div><div class="card"><h3>⛩️ 北港武德宮 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=北港武德宮" target="_blank" rel="noopener">📍導航</a></h3><p>北港知名財神廟，參拜與拍照</p></div></div>
+<span class="go">武德宮 → 朝天宮 約10分鐘</span>
+<div class="stop"><div class="time">約15:30</div><div class="card"><h3>🏮 北港朝天宮 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=北港朝天宮" target="_blank" rel="noopener">📍導航</a></h3><p>媽祖信仰重要廟宇，建築雕刻很精緻</p></div></div>
+<div class="stop"><div class="time">約16:15</div><div class="card"><h3>🍢 北港老街 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=北港老街" target="_blank" rel="noopener">📍導航</a></h3><p>就在朝天宮附近，逛逛小吃與伴手禮</p></div></div>
+<span class="part">🌙 晚上</span>
+<span class="go">北港 → 嘉義市區飯店 約50分鐘（天黑前出發較安心）</span>
+<div class="stop"><div class="time">約17:30</div><div class="card"><h3>🏨 入住嘉義市區飯店</h3><p>放行李、休息一下</p></div></div>
+<div class="stop"><div class="time">18:30</div><div class="card food"><h3>🍜 晚餐｜文化路夜市 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=嘉義文化路夜市" target="_blank" rel="noopener">📍導航</a></h3><p>逛吃嘉義經典小吃，吃完散步消化</p></div></div>
+</section>
+
+<section class="day"><h2>Day 2 ｜ 11/12 山上＋民雄</h2>
+<p class="sub">山區路段較彎，建議早出發、放慢速度</p>
+<span class="part">☀️ 早上</span>
+<span class="go">嘉義市區 → 太平雲梯 約1小時（山路請小心）</span>
+<div class="stop"><div class="time">約08:30</div><div class="card"><h3>☁️ 太平雲梯 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=太平雲梯" target="_blank" rel="noopener">📍導航</a></h3><p>梅山的懸空吊橋，天氣好時視野超棒</p></div></div>
+<div class="stop"><div class="time">約10:00</div><div class="card"><h3>🏘️ 太平老街 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=太平老街 梅山" target="_blank" rel="noopener">📍導航</a></h3><p>雲梯旁的山間老街，慢慢逛、買點小零嘴</p></div></div>
+<span class="part">🍱 午餐</span>
+<div class="stop"><div class="time">約12:00</div><div class="card food"><h3>📚 空氣圖書館 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=空氣圖書館 嘉義" target="_blank" rel="noopener">📍導航</a></h3><p>山林間用餐休息，之後再下山</p></div></div>
+<span class="part">🌤️ 下午</span>
+<span class="go">梅山 → 民雄 約50分鐘</span>
+<div class="stop"><div class="time">約14:30</div><div class="card"><h3>🏰 佐登妮絲城堡 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=佐登妮絲城堡" target="_blank" rel="noopener">📍導航</a></h3><p>歐風城堡造型園區，適合拍照逛逛</p></div></div>
+<div class="stop"><div class="time">約16:00</div><div class="card"><h3>🧸 民雄娃娃工廠 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=民雄娃娃工廠" target="_blank" rel="noopener">📍導航</a></h3><p>可愛娃娃主題景點，就在民雄</p></div></div>
+<span class="part">🌙 晚上</span>
+<span class="go">民雄 → 嘉義市區 約25分鐘</span>
+<div class="stop"><div class="time">18:00</div><div class="card food"><h3>🥬 晚餐｜草行居 百匯蔬食 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=草行居 嘉義" target="_blank" rel="noopener">📍導航</a></h3><p>吃飽休息一下，再出門散步</p></div></div>
+<div class="stop"><div class="time">約19:30</div><div class="card"><h3>🌃 文化路逛逛 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=嘉義文化路夜市" target="_blank" rel="noopener">📍導航</a></h3><p>夜晚再逛一圈，買點宵夜或小吃，早點回飯店休息</p></div></div>
+</section>
+
+<section class="day"><h2>Day 3 ｜ 11/13 市區慢遊</h2>
+<p class="sub">不用騎遠，記得退房後帶好行李，最後還車</p>
+<span class="part">☀️ 上午</span>
+<div class="stop"><div class="time">12點前</div><div class="card"><h3>🧳 飯店退房</h3><p>行李隨身帶著，或先寄放櫃台</p></div></div>
+<span class="part">🍱 中午</span>
+<div class="stop"><div class="time">約12:00</div><div class="card food"><h3>🍔 午餐｜Just Burger <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=Just Burger 嘉義" target="_blank" rel="noopener">📍導航</a></h3><p>吃完休息一下，下午繼續市區行程</p></div></div>
+<span class="part">🌤️ 下午</span>
+<div class="stop"><div class="time">約13:00</div><div class="card"><h3>🧱 臺灣花磚博物館 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=臺灣花磚博物館" target="_blank" rel="noopener">📍導航</a></h3><p>復古花磚與老宅風格，適合拍照</p></div></div>
+<span class="go">花磚博物館 → 檜意森活村 約10分鐘</span>
+<div class="stop"><div class="time">約14:00</div><div class="card"><h3>🌲 檜意森活村 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=檜意森活村" target="_blank" rel="noopener">📍導航</a></h3><p>阿里山林業聚落改造，日式建築與小店</p></div></div>
+<span class="go">檜意森活村 → 兜風機車出租店，歸還機車</span>
+<div class="stop"><div class="time">約14:40</div><div class="card"><h3>🔑 還車 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=兜風機車出租 嘉義" target="_blank" rel="noopener">📍導航</a></h3><p>檢查車況與安全帽，預留時間不要太趕</p></div></div>
+<div class="stop"><div class="time">15:20</div><div class="card"><h3>🚆 嘉義火車站搭車回台中 <a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&destination=嘉義火車站" target="_blank" rel="noopener">📍導航</a></h3><p>自強3000-132，提早到站確認月台</p></div></div>
+</section>
+
+<section class="pack"><h2>🎒 行李清單</h2><p class="bar">已準備：<b id="cnt">0</b> / <b id="tot">0</b>（打勾代表已準備好）</p>
+<h3>📄 證件票券</h3>
+<label><input type="checkbox"><span>機車駕照（租車必備）</span></label>
+<label><input type="checkbox"><span>身分證／健保卡</span></label>
+<label><input type="checkbox"><span>火車票（11/11 去程、11/13 回程）</span></label>
+<label><input type="checkbox"><span>飯店訂房資料</span></label>
+<h3>🛵 騎車必備</h3>
+<label><input type="checkbox"><span>手機防水袋＋機車手機架</span></label>
+<label><input type="checkbox"><span>輕便雨衣（兩件式較好騎）</span></label>
+<label><input type="checkbox"><span>口罩／脖圍（擋風擋塵）</span></label>
+<label><input type="checkbox"><span>防風薄外套（山區與早晚偏涼）</span></label>
+<label><input type="checkbox"><span>長袖或袖套、手套</span></label>
+<label><input type="checkbox"><span>可包覆的鞋（球鞋，避免拖鞋）</span></label>
+<h3>🔌 電子用品</h3>
+<label><input type="checkbox"><span>手機＋充電線</span></label>
+<label><input type="checkbox"><span>行動電源（導航很耗電）</span></label>
+<label><input type="checkbox"><span>悠遊卡／一卡通</span></label>
+<label><input type="checkbox"><span>先下載好離線地圖或路線</span></label>
+<h3>👕 衣物盥洗</h3>
+<label><input type="checkbox"><span>換洗衣物（3天份）</span></label>
+<label><input type="checkbox"><span>內衣褲、襪子</span></label>
+<label><input type="checkbox"><span>盥洗用品（視飯店提供情況）</span></label>
+<label><input type="checkbox"><span>防曬乳、護唇膏</span></label>
+<h3>💊 隨身小物</h3>
+<label><input type="checkbox"><span>現金（廟宇、夜市小攤較常用）</span></label>
+<label><input type="checkbox"><span>常用藥、暈車藥、OK繃</span></label>
+<label><input type="checkbox"><span>濕紙巾、衛生紙</span></label>
+<label><input type="checkbox"><span>水壺</span></label>
+<label><input type="checkbox"><span>輕便後背包（騎車不要背太重）</span></label>
+<p class="bar" style="margin-top:10px">💡 租車店通常會提供安全帽，可先確認；行李以輕便為主。</p></section>
+
+<div class="tips"><h2>📝 小提醒</h2>
+<ul>
+<li>點「📍導航」會開啟 Google 地圖並設為機車模式，出發前請確認終點正確（如有同名店家）。</li>
+<li>時間與騎乘時間都是估計值，營業時間與休館日請出發前再確認。</li>
+<li>太平雲梯路段多彎，遇下雨或起霧要放慢甚至調整行程。</li>
+<li>11月日落較早，Day 1 北港回程建議天黑前出發。</li>
+<li>Day 3 還車後直接去車站，建議預留 30 分鐘緩衝。</li>
+</ul></div>
+<p class="foot">🍮 祝你有一趟甜甜的嘉義旅行 🍮</p>
+</div>
+<script>(function(){var b=document.querySelectorAll('.pack input'),K='chiayi-pack-v2',s=[];try{s=JSON.parse(localStorage.getItem(K)||'[]')}catch(e){}function u(){var n=0,a=[];b.forEach(function(x,i){if(x.checked){n++;a.push(i)}});document.getElementById('cnt').textContent=n;document.getElementById('tot').textContent=b.length;try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}b.forEach(function(x,i){x.checked=s.indexOf(i)>-1;x.addEventListener('change',u)});u()})();</script>
+</body>
+</html>
