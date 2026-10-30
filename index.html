@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>嘉義三日遊手帳 11/11–11/13</title>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf3e4;--paper:#fffdf7;--ink:#5a4636;--line:#e6d3b3;--pink:#ffc9d4;--mint:#c9ead9;--sun:#ffe29a;--sky:#cfe6f7;--acc:#e9788d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2b2420;--paper:#382f29;--ink:#f3e6d3;--line:#5b4c40;--pink:#7a4455;--mint:#3d6050;--sun:#7a6430;--sky:#3b5870;--acc:#ff9fb2}}
+:root[data-theme="dark"]{--bg:#2b2420;--paper:#382f29;--ink:#f3e6d3;--line:#5b4c40;--pink:#7a4455;--mint:#3d6050;--sun:#7a6430;--sky:#3b5870;--acc:#ff9fb2}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Huninn","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.6;background-image:radial-gradient(var(--line) 1.2px,transparent 1.2px);background-size:22px 22px}
+.wrap{max-width:760px;margin:0 auto;padding:18px 14px 40px}
+.hero{text-align:center;background:var(--paper);border:3px dashed var(--acc);border-radius:26px;padding:22px 14px;position:relative;margin-bottom:18px}
+.hero h1{margin:4px 0;font-size:1.9rem}
+.hero p{margin:2px 0}
+.tape{position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-3deg);background:var(--sun);padding:2px 26px;border-radius:4px;font-size:.85rem;opacity:.95}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
+.chip{background:var(--pink);border-radius:99px;padding:2px 12px;font-size:.85rem}
+.day{background:var(--paper);border-radius:22px;border:2px solid var(--line);margin:22px 0;padding:16px 14px 10px;position:relative;box-shadow:4px 5px 0 var(--line)}
+.dh{display:inline-block;background:var(--c);padding:4px 18px;border-radius:99px;font-size:1.15rem;font-weight:700;margin:-30px 0 8px;transform:rotate(-2deg);border:2px solid var(--ink)}
+.theme{font-size:.9rem;margin:0 0 10px;opacity:.85}
+.stop{display:grid;grid-template-columns:62px 1fr;gap:8px;padding:8px 0}
+.time{font-weight:700;background:var(--c);border-radius:12px;text-align:center;height:fit-content;padding:3px 0;font-size:.9rem}
+.card{border-left:3px dotted var(--line);padding-left:10px}
+.card b{font-size:1.05rem}
+.note{font-size:.88rem;opacity:.9}
+a.map{display:inline-block;margin:3px 0 0;background:var(--sky);color:var(--ink);text-decoration:none;border-radius:99px;padding:1px 10px;font-size:.82rem;border:1.5px solid var(--ink)}
+.leg{margin:2px 0 2px 70px;font-size:.84rem;color:var(--acc);font-weight:700}
+.leg::before{content:"┈┈ "}
+.meal{background:var(--sun);border-radius:8px;padding:0 6px;font-size:.78rem;margin-left:4px}
+.pack{background:var(--paper);border:3px dotted var(--acc);border-radius:22px;padding:16px}
+.pack h2,.tips h2{margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:4px 12px}
+.grid label{display:flex;gap:8px;align-items:center;cursor:pointer;padding:3px 0}
+.grid input{appearance:none;width:22px;height:22px;border:2px solid var(--ink);border-radius:7px;background:var(--bg);flex:none;display:grid;place-content:center;cursor:pointer}
+.grid input:checked{background:var(--mint)}
+.grid input:checked::after{content:"✓";font-weight:700;font-size:15px}
+.grid input:checked+span{text-decoration:line-through;opacity:.55}
+.cat{margin:10px 0 6px}.cat h3{display:inline-block;margin:0 0 4px;background:var(--c);border-radius:99px;padding:1px 14px;font-size:.95rem}
+.tips{margin-top:20px;background:var(--mint);border-radius:22px;padding:14px 16px}
+.tips ul{margin:0;padding-left:20px}
+.foot{text-align:center;margin-top:18px;font-size:.85rem;opacity:.8}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><div class="tape">TRAVEL NOTE</div>
+<div style="font-size:2rem">🚂🛵🌸</div>
+<h1>嘉義三日遊・手帳懶人包</h1>
+<p>2026/11/11（三）– 11/13（五）</p>
+<div class="chips"><span class="chip">🚆 台中出發</span><span class="chip">🛵 租機車玩嘉義</span><span class="chip">🥗 蔬食小旅行</span></div></div>
+<div id="days"></div>
+<div class="pack"><h2>🎒 行李清單（點一下打勾）</h2><div id="pack"></div></div>
+<div class="tips"><h2>📌 小提醒</h2><ul>
+<li>租機車請帶駕照與身分證；騎乘距離較長，記得加滿油、檢查安全帽。</li>
+<li>11月早晚偏涼，山區（太平雲梯）更冷，帶件薄外套。</li>
+<li>各景點與餐廳營業時間、公休日請出發前再確認，部分店家可能需預約。</li>
+<li>圖中行車時間為估算，實際路線請點地圖連結導航。</li>
+<li>第三天請預留還車與回車站的時間，避免趕不上 15:20 的車。</li></ul></div>
+<div class="foot">🌷 祝旅途平安，吃好玩好 🌷</div>
+</div>
+<script>
+const g=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
+const D=[
+{h:"Day 1・11/11（三）",c:"var(--pink)",t:"故宮南院 × 北港朝聖 🏛️🙏",s:[
+{t:"06:57",n:"🚉 台中火車站",d:"搭自強3000-371班次往嘉義（車程約1.5小時，抵達時間以車票為準）",q:"台中火車站"},
+{l:"🚶 抵達嘉義站後步行／短程前往租車店"},
+{t:"約08:45",n:"🛵 兜風機車出租",d:"辦理租車、檢查車況、拍照留存",q:"兜風機車出租 嘉義"},
+{l:"🛵 往太保約35–40分"},
+{t:"09:30",n:"🏛️ 國立故宮南院",d:"逛展覽與園區，約2小時",q:"國立故宮博物院南部院區"},
+{t:"12:00",n:"🥗 日好蒔光蔬食料理",m:"午餐",d:"蔬食午餐，補充體力",q:"日好蒔光蔬食料理"},
+{l:"🛵 往北港約40分"},
+{t:"13:45",n:"🙏 北港武德宮",d:"知名財神廟，求平安與財運",q:"北港武德宮"},
+{l:"🛵 約10分"},
+{t:"14:45",n:"⛩️ 北港朝天宮",d:"媽祖信仰中心，建築雕刻很精緻",q:"北港朝天宮"},
+{t:"15:45",n:"🍡 北港老街",d:"散步逛街、吃小點心",q:"北港老街"},
+{l:"🛵 回嘉義市區約1小時"},
+{t:"17:30",n:"🏨 入住嘉義市區飯店",d:"放行李、稍作休息",q:"嘉義市 飯店"},
+{t:"18:30",n:"🍜 文化路夜市晚餐",m:"晚餐",d:"嘉義名物小吃一次吃",q:"嘉義文化路夜市"}]},
+{h:"Day 2・11/12（四）",c:"var(--mint)",t:"山上雲海 × 城堡娃娃 ☁️🏰",s:[
+{t:"08:30",n:"🛵 飯店出發",d:"騎往梅山／太平，山路請放慢速度（約1–1.5小時）",q:"嘉義市 飯店"},
+{t:"約09:45",n:"🌉 太平雲梯",d:"全台最長景觀吊橋之一，山景超美，風大記得外套",q:"太平雲梯"},
+{t:"11:00",n:"🏘️ 太平老街",d:"古早味小街，慢慢散步",q:"太平老街 嘉義"},
+{t:"12:15",n:"📚 空氣圖書館",m:"午餐",d:"在特色空間用餐、拍照",q:"空氣圖書館 嘉義"},
+{l:"🛵 往民雄約50分"},
+{t:"14:30",n:"🏰 佐登妮絲城堡",d:"歐風城堡園區，適合拍照",q:"佐登妮絲城堡"},
+{l:"🛵 約10分"},
+{t:"16:00",n:"🧸 民雄娃娃工廠",d:"可愛娃娃與彩繪體驗",q:"民雄娃娃工廠"},
+{l:"🛵 回市區約30分"},
+{t:"18:00",n:"🥬 草行居百匯蔬",m:"晚餐",d:"蔬食自助百匯",q:"草行居百匯蔬"},
+{t:"19:30",n:"🌙 文化路逛逛",d:"夜市散步、買伴手禮",q:"嘉義文化路夜市"}]},
+{h:"Day 3・11/13（五）",c:"var(--sun)",t:"花磚 × 森活村 × 回家 🧱🌲",s:[
+{t:"上午",n:"☕ 睡飽飽、整理行李",d:"記得 12:00 前辦理退房",q:"嘉義市 飯店"},
+{t:"12:00",n:"🍔 Just Burger",m:"午餐",d:"漢堡午餐",q:"Just Burger 嘉義"},
+{t:"13:00",n:"🧱 臺灣花磚博物館",d:"復古花磚，拍照很可愛",q:"臺灣花磚博物館"},
+{t:"13:50",n:"🌲 檜意森活村",d:"日式木造建築群，逛逛伴手禮",q:"檜意森活村"},
+{l:"🛵 騎回租車店"},
+{t:"14:30",n:"🔑 還車（兜風機車出租）",d:"檢查油量與車況後歸還",q:"兜風機車出租 嘉義"},
+{t:"15:20",n:"🚆 嘉義火車站",d:"搭自強3000-132班次回台中，建議提前到站",q:"嘉義火車站"}]}];
+const P=[
+{h:"📄 證件票券",c:"var(--sky)",i:["身分證／健保卡","駕照（租機車必備）","火車票（截圖備份）","悠遊卡／零錢"]},
+{h:"🛵 騎車用品",c:"var(--sun)",i:["機車手機架","雨衣／輕便雨具","保暖手套（騎車用）","口罩","太陽眼鏡"]},
+{h:"📱 電子用品",c:"var(--mint)",i:["手機＋充電線","行動電源","相機／自拍棒"]},
+{h:"👕 衣物穿搭",c:"var(--pink)",i:["薄外套","換洗衣物","防曬帽"]},
+{h:"🧴 盥洗保健",c:"var(--sky)",i:["盥洗用品","防曬乳","常備藥品","保溫水壺"]}];
+const e=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+document.getElementById("days").innerHTML=D.map(d=>`<section class="day" style="--c:${d.c}"><div class="dh">${e(d.h)}</div><p class="theme">${e(d.t)}</p>`+d.s.map(x=>x.l?`<div class="leg">${e(x.l)}</div>`:`<div class="stop"><div class="time">${e(x.t)}</div><div class="card"><b>${e(x.n)}</b>${x.m?`<span class="meal">${e(x.m)}</span>`:""}<div class="note">${e(x.d)}</div><a class="map" href="${g(x.q)}" target="_blank" rel="noopener">📍 Google 地圖</a></div></div>`).join("")+`</section>`).join("");
+let st={};try{st=JSON.parse(localStorage.getItem("cy2")||"{}")}catch(_){}
+const box=document.getElementById("pack");
+let n=0;
+box.innerHTML=P.map(c=>`<div class="cat" style="--c:${c.c}"><h3>${e(c.h)}</h3><div class="grid">`+c.i.map(p=>{const k=n++;return `<label><input type="checkbox" data-i="${k}" ${st[k]?"checked":""}><span>${e(p)}</span></label>`}).join("")+`</div></div>`).join("");
+box.addEventListener("change",ev=>{st[ev.target.dataset.i]=ev.target.checked;try{localStorage.setItem("cy2",JSON.stringify(st))}catch(_){}});
+</script>
+</body>
+</html>
